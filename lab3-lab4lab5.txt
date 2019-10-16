@@ -1,0 +1,11 @@
+1- Ele subitrai dois inteiros.
+
+2- Ele encerra assim que entra na função principal.
+
+3- Que o lab3.asm faz uma subitração enqunto o lab4.asm encerra o programa assim que inicia por causa do jump que está localizado no inicio do codigo, fazendo com que o restante do codigo se torne desnecessario.
+
+4- Compara dois numeros inteiros.
+
+5- O erro é que quando os numeros são diferentes, ele imprime a menssagem de que são iguais também.
+
+6- Criar uma sub rotina para encerrar e encerila após as impreções.
