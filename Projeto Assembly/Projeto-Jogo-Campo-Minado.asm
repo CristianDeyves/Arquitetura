@@ -38,3 +38,7 @@ calculando-tamanho-da-matriz:
 	
 	# Ajustando o valor total de $t0 para ficar com o tamanho da matriz
 	sub $t0,$t0,1
+	
+preenchendo-matriz-usuario:
+	
+	
