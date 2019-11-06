@@ -32,13 +32,6 @@ main:
 	
 calculando-tamanho-da-matriz:	
 	
-	# Multiplicando linhas por colonas para saber o tamanho total da Matriz e armazenar no registrador $t0
-	mult $t1,$t2
-	mflo $t0
-	
-	# Ajustando o valor total de $t0 para ficar com o tamanho da matriz
-	sub $t0,$t0,1
-	
-preenchendo-matriz-usuario:
+
 	
 	
