@@ -3,9 +3,9 @@ str1:	.asciiz "Digite um numero inteiro para as linhas: "
 str2:	.asciiz "Digite um numero inteiro para as colunas: "
 str3:	.asciiz "Digite um numero inteiro para compor a matriz: "
 
-campominado:	.word 0 : $t0
+campominado:	.word 0 : 10
 
-campousuario:	.word 0 : $t0
+campousuario:	.word 0 : 10
 	
 	.text
 	.globl main
@@ -40,10 +40,10 @@ calculandotamanhodamatriz:
 	
 	# Multiplicando linhas por colonas para saber o tamanho total da Matriz e armazenar no registrador $t0
 	mult $t1,$t2
-	mflo $t0
+	#mflo $t0
 	
 	# Ajustando o valor total de $t0 para ficar com o tamanho da matriz
-	sub $t0,$t0,1
+	#sub $t0,$t0,1
 	
 preenchendomatrizusuario:
 	
@@ -63,4 +63,10 @@ preenchendomatrizusuario:
 	# Pegando o resto da divisão por 2
 	div $t5,$t6
 	mfhi $s0
+	
+loop:    mult     $t3, $t2       # $s2 = linha * cols (sequência de duas instruções)
+         mflo     $t0            # mova o resultado da multiplicação do registro lo para $s2
+         add      $t0, $t0, $t4  # $s2 += contador de colunas
+         #  sll      $s2, $s2, 2    # $s2 *= 4 (desloque para a esquerda 2 bits) para deslocamento de bytes
+         sw       $t5, campominado($t0) # armazene o valor no elemento da matriz
 	
