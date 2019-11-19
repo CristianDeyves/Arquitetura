@@ -1,5 +1,5 @@
 .data
-	# criação de uma matriz 22x22
+	# criaï¿½ï¿½o de uma matriz 22x22
 	mdArray:	.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -22,6 +22,30 @@
 			.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			.word 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			
+	print:		.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			.asciiz "*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*","*"
+			
 	# por ser uma matriz quadrada 22x22
 	size: 		.word 22
 	# constante que representa o tamanho do tipo do dado
@@ -33,14 +57,33 @@
 .text
 	.globl main
 	main:
-		# carregar endereço do mdArray[0][0]
+		# Contador do loopBombas
+		move $s3, $zero
+		
+		#passo 1 colocar bombas na matriz
+			#passo 1.2 verificar quantidade total de bombas
+		
+		#passo 2 imprimir matriz de caracteres
+		
+		#passo 3 solicitar linha e coluna do usuario
+		
+		#passo 4 verificar se tem bomba na posiÃ§Ã£o e verificar os vizinhos
+		
+		#passo 5 colocar as dicas
+		
+		#passo 6 verifica se o usuario ganhou
+		
+		#passo 7 caso o usuario nao ganhou voltar ao passo 2
+		
+		
+		# carregar endereco do mdArray[0][0]
 		la $a0, mdArray
 		# carregar o tamanho da matriz (numero de linhas e colunas)
 		lw $a1, size
-		# função de somar a diagonal
+		# funcao de somar a diagonal
 		jal sumDiagonal
 		
-		# imprimir o resultado da função
+		# imprimir o resultado da funcao
 		move $a0, $v0
 		li $v0, 1
 		syscall 
@@ -77,7 +120,7 @@
 		
 	randomNumber:
 		li $v0, 30        # Syscall 30: System Time syscall
-		syscall                  # $a0 will contain the 32 LS bits of the system time
+		syscall           # $a0 will contain the 32 LS bits of the system time
 		move $t0, $a0     # Save $a0 value in $t0 
 
 		li $v0, 40        # Syscall 40: Random seed
@@ -95,10 +138,18 @@
 		li $v0, 1   # 1 is the system call code to show an int number
 		syscall     # as I said your generated number is at $a0, so it will be printed
 		
+		j loopBombas
+		
+		
+		loopBombas:
+			
+			# Compara se se todas as bombas foram preenchdas.
+			
+		
 		
 		
 	printMatriz:
-		# carregar endereço da matriz em t1 e em k0
+		# carregar endereco da matriz em t1 e em k0
 		la $t1, mdArray
 		la $k0, mdArray
 		
@@ -120,7 +171,7 @@
 			li $s1, 1
 			
 			loopColuna:
-				# carregar valor do endereço em t2
+				# carregar valor do endereco em t2
 				lw $t2, 0($t1)
 				
 				# imprimir valor
@@ -133,7 +184,7 @@
     				li      $v0, 11  
     				syscall
     
-				# avançar para proximo endereço
+				# avancar para proximo endereco
 				mul $t1, $s0, 22
 				add $t1, $t1, $s1
 				mul $t1, $t1, DATA_SIZE
@@ -145,9 +196,9 @@
 				# se coluna != 11, continuar loop
 				bne $s1, $s6, loopColuna
 			
-				# senão, linha++
+				# senao, linha++
 				addi $s0, $s0, 1
-				# recomeçar
+				# recomecar
 				j loopLinha
 		
 		endPrintMatriz:
