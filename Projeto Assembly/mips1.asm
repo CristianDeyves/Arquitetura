@@ -94,6 +94,12 @@
 		#passo 3 solicitar linha e coluna do usuario
 		
 		#passo 4 verificar se tem bomba na posição e verificar os vizinhos
+		# Mudar os registradores para os de linha e coluna que o usuario quer 
+		# Acessando o indici que o usuario escolheu
+		mult linha,coluna
+		mtlo $t2
+		
+		
 		
 		#passo 5 colocar as dicas
 		
